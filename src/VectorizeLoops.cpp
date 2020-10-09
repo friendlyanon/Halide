@@ -44,7 +44,7 @@ class ReplaceShuffleVectors : public IRMutator {
     }
 
 public:
-    ReplaceShuffleVectors(const string &v)
+    explicit ReplaceShuffleVectors(const string &v)
         : var(v) {
     }
 };
@@ -1465,7 +1465,7 @@ public:
         }
     }
 
-    LiftVectorizableExprsOutOfSingleAtomicNode(const std::set<Expr, ExprCompare> &liftable)
+    explicit LiftVectorizableExprsOutOfSingleAtomicNode(const std::set<Expr, ExprCompare> &liftable)
         : liftable(liftable) {
     }
 };
@@ -1490,7 +1490,7 @@ class LiftVectorizableExprsOutOfAllAtomicNodes : public IRMutator {
     const map<string, Function> &env;
 
 public:
-    LiftVectorizableExprsOutOfAllAtomicNodes(const map<string, Function> &env)
+    explicit LiftVectorizableExprsOutOfAllAtomicNodes(const map<string, Function> &env)
         : env(env) {
     }
 };
@@ -1532,7 +1532,7 @@ class VectorizeLoops : public IRMutator {
     }
 
 public:
-    VectorizeLoops(const Target &t)
+    explicit VectorizeLoops(const Target &t)
         : target(t), in_hexagon(false) {
     }
 };
@@ -1548,7 +1548,7 @@ class AllStoresInScope : public IRVisitor {
 public:
     bool result = true;
     const Scope<> &s;
-    AllStoresInScope(const Scope<> &s)
+    explicit AllStoresInScope(const Scope<> &s)
         : s(s) {
     }
 };
